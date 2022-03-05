@@ -139,6 +139,18 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.0.tgz#7f698254aadf921e48dda8c0a6b304026b8a9323"
   integrity sha512-JLo+Y592QzIE+q7Dl2pMUtt4q8SKYI5jDrZxrozEQxnGVOyYE+GWK9eLkwTaeN9DDctlaRAQ3TBmzZ1qdLE30A==
 
+"@streambird/streambird-js@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@streambird/streambird-js/-/streambird-js-1.0.1.tgz#7dc8bcf40772de7a11c901f2d6050cd25d28b766"
+  integrity sha512-UrILYOEeyNyaAkLhJpgfXrE+mnzXtxL7F4zs31yFuFxq9qbjT7sHXf3m7MHmLbHDBeZytPWl1f4flChua3QC5w==
+
+"@streambird/streambird-react@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@streambird/streambird-react/-/streambird-react-1.0.2.tgz#f39ccf236ac29e9f505435c523003757f0e4a701"
+  integrity sha512-ikvvjkzMBd9XW0iYXszl9i0TFOGNIjpm1EdQ2I50OELqdv0gEpWCmnirFdbGRhe/dXhLR5OR9hkStiNaP0S+kg==
+  dependencies:
+    "@streambird/streambird-js" "^1.0.1"
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"

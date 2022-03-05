@@ -1,34 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Using Streambird with Next
 
-## Getting Started
+To render the Streambird auth/login component in your Next project, simply install the package and configure the Streambird component. For further information on all the Streambird props and definitions, they can be found within the the [Streambird SDK](https://docs.streambird.io/docs/sdk).
 
-First, run the development server:
+## Usage
 
-```bash
-npm run dev
-# or
+Before you run npm or yarn, make sure you have the following setup on the Streambird portal. Without these settings, the React component will not work.
+
+1. Public API key
+2. Login redirect URL
+3. Registration redirect URL
+
+Paste these values into their corresponding config sections / variables.
+
+```sh
+npm install
+npm run-script dev
+
+or
+
+yarn install
 yarn dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then navigate to http://localhost:8001
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Example code
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```js
+import type { NextPage } from 'next'
+import styles from '../styles/Home.module.css'
+import { Streambird } from "@streambird/streambird-react";
+import { ErrorData, SuccessData, WalletType } from '@streambird/streambird-js';
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+const Home: NextPage = () => {
+  const streambirdConfig = {
+    emailMagicLink: {
+      loginRedirectUrl: 'LOGIN_REDIRECT_URL_FROM_PORTAL_GOES_HERE',
+      registrationRedirectUrl: 'REGISTRATION_REDIRECT_URL_FROM_PORTAL_GOES_HERE',
+      loginExpiresIn: 5,
+      registrationExpireIn: 5,
+      requiresVerification: false,
+      autoVerify: true
+    },
+    wallet: {
+      walletType: WalletType.Ethereum
+    },
+    componentStyle: {
+      width: 500,
+      showHeaderText: true,
+      headerText: 'Welcome to passbird',
+      headerTextColor: '',
+      bodyText: 'Please enter your email address and sign up with a magic link to start using decentralized applications.',
+      bodyTextColor: '#333333',
+      buttonTextColor: '#FFFFFF',
+      buttonColor: '',
+      errMsgColor: ''
+    }
+  }
 
-## Learn More
+  const handleCallbacks = {
+    onSuccess: (message: SuccessData) => {
+      console.log(message)
+    },
+    onError: (message: ErrorData) => {
+      console.log(message)
+    }
+  }
 
-To learn more about Next.js, take a look at the following resources:
+  return (
+    <div id="login">
+      <Streambird
+        publicToken={"YOUR_API_KEY_FROM_PORTAL_GOES_HERE"}
+        config={streambirdConfig}
+        callbacks={handleCallbacks}
+      />
+    </div>
+  )
+}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+export default Home
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
 
-## Deploy on Vercel
+For detailed description and information on how to use the Streambird SDK, please refer to the [SDK docs](https://docs.streambird.io/docs/sdk).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Changelog
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**[1.0.0] - 2020-03-06**
+- Launch Streambird Next example
