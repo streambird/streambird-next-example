@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
 import { Streambird } from "@streambird/streambird-react";
-import { ErrorData, SuccessData, WalletType } from '@streambird/streambird-js';
+import { ErrorData, SuccessData, ProductTypes } from '@streambird/streambird-js';
 
 const Home: NextPage = () => {
 
   const streambirdConfig = {
+    enabledProducts: [ProductTypes.EmailMagicLink],
     emailMagicLink: {
       loginRedirectUrl: '',
       registrationRedirectUrl: '',
@@ -13,9 +14,6 @@ const Home: NextPage = () => {
       registrationExpireIn: 5,
       requiresVerification: false,
       autoVerify: true
-    },
-    wallet: {
-      walletType: WalletType.Ethereum
     },
     componentStyle: {
       width: 500,
