@@ -144,10 +144,10 @@
   resolved "https://registry.yarnpkg.com/@streambird/streambird-js/-/streambird-js-1.0.1.tgz#7dc8bcf40772de7a11c901f2d6050cd25d28b766"
   integrity sha512-UrILYOEeyNyaAkLhJpgfXrE+mnzXtxL7F4zs31yFuFxq9qbjT7sHXf3m7MHmLbHDBeZytPWl1f4flChua3QC5w==
 
-"@streambird/streambird-react@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@streambird/streambird-react/-/streambird-react-1.0.2.tgz#f39ccf236ac29e9f505435c523003757f0e4a701"
-  integrity sha512-ikvvjkzMBd9XW0iYXszl9i0TFOGNIjpm1EdQ2I50OELqdv0gEpWCmnirFdbGRhe/dXhLR5OR9hkStiNaP0S+kg==
+"@streambird/streambird-react@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@streambird/streambird-react/-/streambird-react-1.0.5.tgz#ae620804cfec8ddeaa88bf87076350bc8db4d247"
+  integrity sha512-lpLi7eAAgfv46vKlTWkc7gbUHSz4w2A/FicO9jNh7S2I19yBdf0lL214E56mvuemL5+2kAKjMHF/lo8Oq4rS0Q==
   dependencies:
     "@streambird/streambird-js" "^1.0.1"
 
