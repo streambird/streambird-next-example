@@ -7,8 +7,8 @@ const Home: NextPage = () => {
 
   const streambirdConfig = {
     emailMagicLink: {
-      loginRedirectUrl: 'LOGIN_REDIRECT_URL_FROM_PORTAL_GOES_HERE',
-      registrationRedirectUrl: 'REGISTRATION_REDIRECT_URL_FROM_PORTAL_GOES_HERE',
+      loginRedirectUrl: '',
+      registrationRedirectUrl: '',
       loginExpiresIn: 5,
       registrationExpireIn: 5,
       requiresVerification: false,
