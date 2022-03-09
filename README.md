@@ -7,10 +7,16 @@ To render the Streambird auth/login component in your Next project, simply insta
 Before you run npm or yarn, make sure you have the following setup on the Streambird portal. Without these settings, the React component will not work.
 
 1. Public API key
-2. Login redirect URL
-3. Registration redirect URL
+2. Login redirect URL (required if you are `autoVerify: false`, which will redirect to your own redirect url instead of using our verified page)
+3. Registration redirect URL (required if you are `autoVerify: false`, which will redirect to your own redirect url instead of using our verified page)
+4. Copy `.env.example` to `.env` or `.env.local` and replace the variables inside.
 
-Paste these values into their corresponding config sections / variables.
+```sh
+cp .env.example .env.local
+
+```
+
+5. replace STREAMBIRD_PUBLIC_TOKEN with your account's public token.
 
 ```sh
 npm install
@@ -42,7 +48,7 @@ const Home: NextPage = () => {
       loginExpiresIn: 5,
       registrationExpireIn: 5,
       requiresVerification: false,
-      autoVerify: true
+      autoVerify: true // when set to true, we host the verification page for you and only trigger onSuccess callback once the magic link has been clicked. When set to false, we trigger onSuccess callback as soon as the magic link is sent.
     },
     componentStyle: {
       width: 500,

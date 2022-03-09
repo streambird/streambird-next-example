@@ -4,7 +4,7 @@ import { Streambird } from "@streambird/streambird-react";
 import { ErrorData, SuccessData, ProductTypes } from '@streambird/streambird-js';
 
 const Home: NextPage = () => {
-
+  
   const streambirdConfig = {
     enabledProducts: [ProductTypes.EmailMagicLink],
     emailMagicLink: {
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       loginExpiresIn: 5,
       registrationExpireIn: 5,
       requiresVerification: false,
-      autoVerify: true
+      autoVerify: false
     },
     componentStyle: {
       width: 500,
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Streambird
-        publicToken={"YOUR_API_KEY_FROM_PORTAL_GOES_HERE"}
+        publicToken={process.env.STREAMBIRD_PUBLIC_TOKEN}
         config={streambirdConfig}
         callbacks={handleCallbacks}
       />
