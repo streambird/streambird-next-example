@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       loginExpiresIn: 5,
       registrationExpireIn: 5,
       requiresVerification: false,
-      autoVerify: false
+      autoVerify: true,
     },
     componentStyle: {
       width: 500,
